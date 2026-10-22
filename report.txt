@@ -1,0 +1,18 @@
+Log triage report for samples/sample.log
+Generated: 2026-10-22 16:02
+
+PROBLEM: 09:14:02 | web01 | sshd[1234] | Failed password for invalid user admin from 203.0.113.5 port 52211 ssh2
+PROBLEM: 09:14:05 | web01 | sshd[1234] | Failed password for invalid user admin from 203.0.113.5 port 52212 ssh2
+PROBLEM: 09:15:10 | db01 | kernel | EXT4-fs error (device sda1): ext4_find_entry: reading directory lblock 0
+PROBLEM: 09:16:00 | web01 | nginx[880] | [error] upstream timed out while reading response header
+PROBLEM: 09:17:30 | stor01 | multipathd[512] | sdb: path failed, checker reported path is down
+PROBLEM: 09:21:05 | db01 | backup.sh[2202] | ERROR: backup target /mnt/nas unreachable
+
+6 problem lines found
+
+Problems by host and service:
+  web01 sshd: 2
+  db01 kernel: 1
+  web01 nginx: 1
+  stor01 multipathd: 1
+  db01 backup.sh: 1
