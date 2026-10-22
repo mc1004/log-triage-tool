@@ -10,10 +10,13 @@ To help me analyse log data
 - writes a short summary report. 
 
 ## How to run it
-Run python script. 
-Required Python3 to be installed.
+```
+py triage.py
+```
+Requires Python 3 to be installed.
 
 ## Example output
+```
 Log triage report for samples/sample.log
 Generated: 2026-10-22 16:02
 
@@ -32,7 +35,7 @@ Problems by host and service:
   web01 nginx: 1
   stor01 multipathd: 1
   db01 backup.sh: 1
-
+```
 ## How it works
 - splits each line into fields,
 - checks the message against a keyword list,
