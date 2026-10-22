@@ -1,4 +1,6 @@
 print("Log triage tool starting")
+PROBLEM_WORDS = ["error", "fail", "is down", "unreachable", "timed out"]
+problem_count = 0
 
 #opens the file and closes it again automatically when it's finished.
 #for line in f: goes through the file one line at a time.
@@ -8,6 +10,10 @@ print("Log triage tool starting")
 #split(": ", 1) cuts the rest of the line at the first ": " only.
 # That matters because some messages contain colons of their own, like the EXT4 line.
 #f"..." is an f-string. Whatever is in the {} gets filled in with that variable's value.
+#message.lower() makes the message lower case so ERROR and error both match.
+#any(...) is True if at least one of the words appears in the message.
+#problem_count += 1 adds 1 to the counter each time a line matches.
+
 
 with open("samples/sample.log") as f:
     for line in f:
@@ -15,5 +21,8 @@ with open("samples/sample.log") as f:
         time = parts[2]
         host = parts[3]
         service, message = parts[4].split(": ", 1)
-        print(f"{time} | {host} | {service} | {message}")
+        if any(word in message.lower() for word in PROBLEM_WORDS):
+            problem_count += 1
+            print(f"PROBLEM: {time} | {host} | {service} | {message}")
 
+print(f"\n{problem_count} problem lines found")
