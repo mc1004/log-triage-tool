@@ -2,7 +2,7 @@
 Log triage tool in Python. 
 
 ## Why I built it
-To help me analyse log data
+To help me analyse log data for security alerts. 
 
 ## What it does
 - reads syslog-style logs
@@ -42,7 +42,7 @@ Problems by host and service:
 - tallies by host and service.
 
 ## What I learned
-- The sample log wouldn't upload. The Python .gitignore template ignores every *.log file. You added !samples/*.log as an exception.
+- The sample log wouldn't upload. The Python .gitignore template ignores every *.log file. I added !samples/*.log as an exception.
 - 7 problems were flagged instead of 6. I spotted that "Started Daily apt download activities" wasn't a real problem. It was a false positive, because "download" contains "down".
 - I fixed it by changing the keyword to "is down".
 - splitting log lines into fields and using Counter to tally problems by host and service.
